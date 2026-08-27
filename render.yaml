@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: mclean-plaid-proxy
+    runtime: docker
+    plan: starter
+    region: virginia
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: NODE_ENV
+        value: production
+      - key: PLAID_ENV
+        sync: false
+      - key: PLAID_CLIENT_ID
+        sync: false
+      - key: PLAID_SECRET
+        sync: false
+      - key: HMAC_SHARED_SECRET
+        sync: false
+      - key: ALLOWED_ORIGIN
+        sync: false
